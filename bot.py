@@ -299,7 +299,7 @@ def dues(m):
         fixed = float(it.get("fixed") or 0)
         paid = float(it.get("paid") or 0)
         duev = float(it.get("due") or 0)
-        lines.append(f"Year {year}: Fixed {fixed:.0f} | Paid {paid:.0f} | Due <b>{duev:.0f}</b>")
+        lines.append(f"Semester {year}: Fixed {fixed:.0f} | Paid {paid:.0f} | Due <b>{duev:.0f}</b>")
         if duev > 0:
             due_years.append((year, int(duev)))
 
@@ -309,7 +309,7 @@ def dues(m):
         kb = types.InlineKeyboardMarkup()
         for year, amt in due_years:
             kb.add(types.InlineKeyboardButton(
-                text=f"Year {year} due: {amt}",
+                text=f"Semester {year} due: {amt}",
                 callback_data=f"pay_year:{year}:{amt}"
             ))
         bot.send_message(m.chat.id, "💳 Due bo'yicha tez to'lov:", reply_markup=kb)
