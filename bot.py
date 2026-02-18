@@ -370,10 +370,10 @@ def callbacks(c):
             kb = types.InlineKeyboardMarkup()
             for year, amt in due_years:
                 kb.add(types.InlineKeyboardButton(
-                    text=f"Year {year} — {amt}",
+                    text=f"Semester {year} — {amt}",
                     callback_data=f"pay_year:{year}:{amt}"
                 ))
-            bot.send_message(c.message.chat.id, "Year tanlang:", reply_markup=kb)
+            bot.send_message(c.message.chat.id, "Semester tanlang:", reply_markup=kb)
         except Exception as e:
             bot.send_message(c.message.chat.id, f"Xatolik: {e}", reply_markup=main_menu())
         return
